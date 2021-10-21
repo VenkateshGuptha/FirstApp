@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-import pymongo
+from pymongo import MongoClient
 
 degree_symbol = (u'\N{DEGREE SIGN}')
 data = "Data"
@@ -22,7 +22,7 @@ col3.radio("Block C. Directions -", ('Left', 'Right', 'North', 'South'))
 col3.radio("Block D. Directions -", ('Left', 'Right', 'North', 'South'))
 
 
-client = pymongo.MongoClient(st.secrets["url"])
+client = MongoClient(st.secrets["url"])
 db = client.sample_airbnb
 my_collections = db.listingsAndReviews
 data, list(my_collections.find({"name": "Ribeira Charming Duplex"}))
