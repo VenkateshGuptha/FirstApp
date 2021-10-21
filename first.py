@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import pymongo
 
 degree_symbol = (u'\N{DEGREE SIGN}')
 data = "Data"
