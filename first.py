@@ -1,6 +1,5 @@
 import streamlit as st
 from PIL import Image
-import pymongo
 
 degree_symbol = (u'\N{DEGREE SIGN}')
 data = "Data"
@@ -20,14 +19,3 @@ col3.radio("Block A. Directions -", ('Left', 'Right', 'North', 'South'))
 col3.radio("Block B. Directions -", ('Left', 'Right', 'North', 'South'))
 col3.radio("Block C. Directions -", ('Left', 'Right', 'North', 'South'))
 col3.radio("Block D. Directions -", ('Left', 'Right', 'North', 'South'))
-
-
-client = pymongo.MongoClient("mongodb+srv://kneehighrobotics:trimblehack2021@cluster0.ar4vy.mongodb.net/sample_airbnb?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE")
-#client = pymongo.MongoClient("mongodb+srv://kneehighrobotics:trimblehack2021/?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE")
-db = client.sample_airbnb
-my_collections = db.listingsAndReviews
-#col1.write(my_collections.find().count())
-data, list(my_collections.find({"name": "Ribeira Charming Duplex"}))
-
-'''for item in my_collections.find():
-    col1.write(item['name'])'''
